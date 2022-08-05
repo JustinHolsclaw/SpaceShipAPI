@@ -1,0 +1,57 @@
+What is an API? Well the acronym stands for Application Programming Interface. Thats helpful right!
+Here is my explanation, an API is a way by which two applications(or an application and a database) can communicate.
+This communication is regulated by specific 'calls' which we will go into later. The advantage of an API is that they are
+language agnostic, meaning that if I adhere to the rules of the API and use calls, I can communicate no matter the language I am using.
+A C# program can talk to a python API, and a python program to a node API. To call the API you must adhere to the rules of that API,
+these rules are different depending on the purpose of the API. Some APIs request Authorization prior to access, some require a specific payload
+format(The payload is the data being sent to the API). However the calls to an API generally follow a universal format, these calls fall under
+the categories
+    - get
+    - post
+    - delete
+    - update
+and a few more, those are the most common. GET requests are generally a request for information and expect a reply.
+POST sends data and generally is used to post data to a database
+DELETE obviously deletes something
+UPDATE updates(simple right!)
+The name of the call states the intent, however the implementation of the API actually determines what occurs with the call.
+Lets get into a simple example! This will be without a database, for the sake of simplicity.
+
+For this example you will need:
+- NodeJS (use npm -v to ensure node has been installed)
+- Nodemon (to install use npm install -g nodemon) nodemon automatically restarts the server with changes
+- Express (npm install express) express creates the server
+
+1. Create your parent folder. In a windows terminal you can do that by using mkdir yourfilename
+
+2. Within that parent folder run the command npm init, this will create the package.json file
+    a. give it the name of your API
+    b. leave the version as is
+    c. give your api a description
+    d. leave the main file as index.js
+    e. You can leave the rest of them blank as they don't pretain to our example.
+
+3. Create a server.js file in the parent directory.
+
+4. We will now create the file structure, in the root folder create the following folders:
+    - controllers
+    - models
+    - routes
+
+5. Create the empty files for the controllers, models, and routes
+    in our example it will be SpaceShipController.js, SpaceShipModel.js, and SpaceShipRoute.js
+Note: the standard is to have the file end with what the file is, controllers end with controller.
+
+6. Open your package.json and under scripts add a new script called start
+like so "start": "nodemon server.js"
+
+Note: scripts are just a way for us to simplify more complex terminal commands
+
+7. Add this code to your server.js file
+    const express = require('express'),
+    app = express(), 
+    port = process.env.PORT || 3000;
+
+    app.listen(port);
+
+    console.log('server started');
