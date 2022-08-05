@@ -4,7 +4,7 @@ module.exports = (app) => {
     app.route('/spaceships')
         .get(spaceShips.list_all_ships)
 
-    app.route('/spaceships/:shipId')
-        .get(spaceShips.get_a_ship)
-        .put(spaceShips.create_a_ship)
+    // app.route('/spaceships/:shipId')
+    //     .get(spaceShips.get_a_ship)
+    // //     .put(spaceShips.create_a_ship)
 };
